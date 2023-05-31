@@ -1,6 +1,5 @@
 import TheHeader from "./components/TheHeader";
-import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
+import TodoBoard from "./components/TodoBoard";
 import "./scss/default.scss";
 import "./App.scss";
 
@@ -23,8 +22,7 @@ function App() {
       </header> */}
       <div className="App_container">
         <TheHeader></TheHeader>
-        <TodoInput></TodoInput>
-        <TodoList></TodoList>
+        <TodoBoard></TodoBoard>
       </div>
     </div>
   );
