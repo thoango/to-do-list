@@ -4,9 +4,12 @@ import TodoList from "../TodoList";
 function TodoBoard() {
   const [newInput, setNewInput] = useState("");
   const [todoList, setTodoList] = useState([]);
-  function handleInputEnterKey(event) {
-    if (event.key === "Enter") {
-      const value = event.target.value;
+  function handleKeyPress(event) {
+    const {
+      key,
+      target: { value },
+    } = event;
+    if (key === "Enter") {
       setNewInput(value);
       if (value) {
         addTodoItem(value);
@@ -27,7 +30,7 @@ function TodoBoard() {
     <div className="todoBoard">
       <TodoInput
         value={newInput}
-        onInputEnter={handleInputEnterKey}
+        onInputEnter={handleKeyPress}
         onInputChange={handleChange}
       ></TodoInput>
       <TodoList todoList={todoList}></TodoList>
