@@ -11,7 +11,7 @@ function TodoBoard() {
     } = event;
     if (key === "Enter") {
       setNewInput(value);
-      if (value) {
+      if (value.trim()) {
         addTodoItem(value);
         setNewInput("");
       }
