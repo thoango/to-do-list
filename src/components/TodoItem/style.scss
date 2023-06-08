@@ -1,27 +1,25 @@
 .todoItem {
   list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  // margin: 0 0 1rem;
-  padding: 1rem;
   width: 100%;
-  height: 2rem;
+  position: relative;
   &:hover {
-    cursor: pointer;
-  }
-  &:nth-child(2n) {
-    background-color: #c3e8e2;
+    .todoItem {
+      &_leftWrap {
+        background-color: #c3e8e2;
+      }
+      &_option {
+        display: block;
+      }
+    }
   }
   &:last-child {
     margin: 0;
   }
-  &.done {
-    text-decoration: line-through;
-  }
-  &_left {
+  &_leftWrap {
+    width: calc(100% - 2rem);
     display: flex;
     align-items: center;
+    padding: 0 0 0 1rem;
   }
   &_checkbox {
     width: 1rem;
@@ -31,8 +29,31 @@
     margin: 0 1rem 0 0;
     border-radius: 2px;
   }
-  &_trashIcon {
+  &_text {
+    border-bottom: 1px solid #d5e3e0;
+    display: block;
+    width: calc(100% - 2rem);
+    padding: 1rem 0;
+  }
+  &_option {
+    position: absolute;
     width: 1rem;
-    display: inline-block;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    &:hover {
+      cursor: pointer;
+    }
+    &Box {
+      position: absolute;
+      width: 200px;
+      border: 1px solid #707070;
+      // padding: 1rem;
+      height: 100px;
+      top: 0;
+      right: 0;
+      display: none;
+    }
   }
 }

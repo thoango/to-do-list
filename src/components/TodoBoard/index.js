@@ -4,6 +4,7 @@ import TodoList from "../TodoList";
 function TodoBoard() {
   const [newInput, setNewInput] = useState("");
   const [todoList, setTodoList] = useState([]);
+  const [completedList, setCompletedList] = useState([]);
   function handleKeyPress(event) {
     const {
       key,
@@ -26,6 +27,17 @@ function TodoBoard() {
       { id: Date.now(), text: value },
     ]);
   }
+  function handleCheckClick(id) {
+    if (id) {
+      setCompletedList((prevCompletedList) => [
+        ...prevCompletedList,
+        todoList.find((item) => item.id === id),
+      ]);
+      setTodoList((prevTodoList) =>
+        prevTodoList.filter((todoItem) => todoItem.id !== id)
+      );
+    }
+  }
   return (
     <div className="todoBoard">
       <TodoInput
@@ -33,7 +45,7 @@ function TodoBoard() {
         onInputEnter={handleKeyPress}
         onInputChange={handleChange}
       ></TodoInput>
-      <TodoList todoList={todoList}></TodoList>
+      <TodoList todoList={todoList} onCheckClick={handleCheckClick}></TodoList>
     </div>
   );
 }

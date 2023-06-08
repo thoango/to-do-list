@@ -1,21 +1,29 @@
-import { useState } from "react";
-import trashIcon from "../../images/icon-trash.png";
+import moreIcon from "../../images/icon-more.png";
 import "./style.scss";
-function TodoItem({ text }) {
-  const [done, setDone] = useState(false);
-  function handleClick() {
-    setDone(!done);
+function TodoItem({ text, itemId, onCheckClick }) {
+  function showOption(event) {
+    event.target.className = toggleClassName(event.target.className, "opened");
+  }
+  function toggleClassName(className, toggleClass) {
+    if (className.includes(toggleClass)) {
+      className = className.replace(toggleClass, "");
+    } else {
+      className += ` ${toggleClass}`;
+    }
+    return className;
   }
   return (
-    <li className={done ? "todoItem done" : "todoItem"} onClick={handleClick}>
-      <div className="todoItem_left">
-        <span className="todoItem_checkbox"></span>
+    <li className="todoItem">
+      <div className="todoItem_leftWrap">
+        <span
+          className="todoItem_checkbox"
+          onClick={() => onCheckClick(itemId)}
+        ></span>
         <span className="todoItem_text">{text}</span>
       </div>
-      <div className="todoItem_right">
-        <span className="todoItem_trashIcon">
-          <img src={trashIcon} alt="trash icon"></img>
-        </span>
+      <div className="todoItem_option" onClick={showOption}>
+        <img src={moreIcon} alt="more icon"></img>
+        <div className="todoItem_optionBox"></div>
       </div>
     </li>
   );
