@@ -2,15 +2,16 @@ import moreIcon from "../../images/icon-more.png";
 import "./style.scss";
 function TodoItem({ text, itemId, onCheckClick }) {
   function showOption(event) {
-    event.target.className = toggleClassName(event.target.className, "opened");
+    let element = event.currentTarget;
+    let toggleClass = "opened";
+    toggleClassName(element, toggleClass);
   }
-  function toggleClassName(className, toggleClass) {
-    if (className.includes(toggleClass)) {
-      className = className.replace(toggleClass, "");
+  function toggleClassName(element, className) {
+    if (element.classList.contains(className)) {
+      element.classList.remove(className);
     } else {
-      className += ` ${toggleClass}`;
+      element.classList.add(className);
     }
-    return className;
   }
   return (
     <li className="todoItem">
