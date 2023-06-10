@@ -38,6 +38,14 @@ function TodoBoard() {
       );
     }
   }
+  function handleDeleteItem(id) {
+    if (id) {
+      setTodoList((prevTodoList) =>
+        prevTodoList.filter((todoItem) => todoItem.id !== id)
+      );
+    }
+  }
+  function removeItem() {}
   return (
     <div className="todoBoard">
       <TodoInput
@@ -45,7 +53,11 @@ function TodoBoard() {
         onInputEnter={handleKeyPress}
         onInputChange={handleChange}
       ></TodoInput>
-      <TodoList todoList={todoList} onCheckClick={handleCheckClick}></TodoList>
+      <TodoList
+        todoList={todoList}
+        onCheckClick={handleCheckClick}
+        onItemDelete={handleDeleteItem}
+      ></TodoList>
     </div>
   );
 }

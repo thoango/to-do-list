@@ -1,6 +1,6 @@
 import moreIcon from "../../images/icon-more.png";
 import "./style.scss";
-function TodoItem({ text, itemId, onCheckClick }) {
+function TodoItem({ text, itemId, onCheckClick, onItemDelete }) {
   function showOption(event) {
     let element = event.currentTarget;
     let toggleClass = "opened";
@@ -24,7 +24,16 @@ function TodoItem({ text, itemId, onCheckClick }) {
       </div>
       <div className="todoItem_option" onClick={showOption}>
         <img src={moreIcon} alt="more icon"></img>
-        <div className="todoItem_optionBox"></div>
+        <div className="todoItem_optionBox">
+          <ul className="todoItem_optionList">
+            <li
+              className="todoItem_optionItem"
+              onClick={() => onItemDelete(itemId)}
+            >
+              <span className="">Delete</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </li>
   );

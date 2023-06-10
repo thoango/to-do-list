@@ -1,6 +1,8 @@
 .todoItem {
   list-style: none;
   width: 100%;
+  display: flex;
+  align-items: center;
   position: relative;
   &:hover {
     .todoItem {
@@ -36,24 +38,33 @@
     padding: 1rem 0;
   }
   &_option {
-    position: absolute;
     width: 1rem;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
     display: none;
+    margin: 0 0 0 1rem;
     &:hover {
       cursor: pointer;
     }
+    &.opened {
+      display: block;
+      .todoItem_optionBox {
+        display: block;
+      }
+    }
     &Box {
       position: absolute;
-      width: 200px;
-      border: 1px solid #707070;
-      // padding: 1rem;
-      height: 100px;
-      top: 0;
-      right: 0;
+      background-color: #fff;
+      border-radius: 5px;
+      top: 2rem;
+      right: -2rem;
       display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+    &Item {
+      padding: 0.5rem 1rem;
+      &:hover {
+        background-color: #c3e8e2;
+      }
     }
   }
 }
