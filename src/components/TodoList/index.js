@@ -1,6 +1,6 @@
 import TodoItem from "../TodoItem";
 import "./style.scss";
-function TodoList({ todoList, onCheckClick, onItemDelete }) {
+function TodoList({ todoList, onCheckClick, onItemDelete, onInputBlur }) {
   const todoItemList = [];
   todoList.forEach((todoItem) => {
     todoItemList.push(
@@ -10,6 +10,7 @@ function TodoList({ todoList, onCheckClick, onItemDelete }) {
         itemId={todoItem.id}
         onCheckClick={onCheckClick}
         onItemDelete={onItemDelete}
+        onInputBlur={onInputBlur}
       ></TodoItem>
     );
   });

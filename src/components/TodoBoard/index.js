@@ -33,19 +33,31 @@ function TodoBoard() {
         ...prevCompletedList,
         todoList.find((item) => item.id === id),
       ]);
-      setTodoList((prevTodoList) =>
-        prevTodoList.filter((todoItem) => todoItem.id !== id)
-      );
+      setTodoList(removeItem(todoList, id));
     }
   }
   function handleDeleteItem(id) {
     if (id) {
-      setTodoList((prevTodoList) =>
-        prevTodoList.filter((todoItem) => todoItem.id !== id)
-      );
+      setTodoList(removeItem(todoList, id));
     }
   }
-  function removeItem() {}
+  function removeItem(prevList, id) {
+    return prevList.filter((item) => item.id !== id);
+  }
+  function handleInputBlur(event, id) {
+    const editedItem = {
+      id,
+      text: event.target.value,
+    };
+    setTodoList((prevList) =>
+      prevList.map((item) => {
+        if (item.id === id) {
+          return editedItem;
+        }
+        return item;
+      })
+    );
+  }
   return (
     <div className="todoBoard">
       <TodoInput
@@ -57,6 +69,7 @@ function TodoBoard() {
         todoList={todoList}
         onCheckClick={handleCheckClick}
         onItemDelete={handleDeleteItem}
+        onInputBlur={handleInputBlur}
       ></TodoList>
     </div>
   );
