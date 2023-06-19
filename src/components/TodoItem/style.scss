@@ -9,9 +9,9 @@
       &_leftWrap {
         background-color: #c3e8e2;
       }
-      &_option {
-        display: block;
-      }
+    }
+    .option_container {
+      display: block;
     }
   }
   &:last-child {
@@ -45,35 +45,5 @@
     display: block;
     width: calc(100% - 2rem);
     padding: 1rem 0;
-  }
-  &_option {
-    width: 1rem;
-    display: none;
-    margin: 0 0 0 1rem;
-    &:hover {
-      cursor: pointer;
-    }
-    &.opened {
-      display: block;
-      .todoItem_optionBox {
-        display: block;
-      }
-    }
-    &Box {
-      position: absolute;
-      background-color: #fff;
-      border-radius: 5px;
-      top: 2rem;
-      right: -2rem;
-      display: none;
-      z-index: 1000;
-      overflow: hidden;
-    }
-    &Item {
-      padding: 0.5rem 1rem;
-      &:hover {
-        background-color: #c3e8e2;
-      }
-    }
   }
 }

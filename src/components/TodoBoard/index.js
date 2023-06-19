@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TheHeader from "../TheHeader";
 import TodoInput from "../TodoInput";
 import TodoList from "../TodoList";
 function TodoBoard() {
@@ -60,6 +61,7 @@ function TodoBoard() {
   }
   return (
     <div className="todoBoard">
+      <TheHeader></TheHeader>
       <TodoInput
         value={newInput}
         onInputEnter={handleKeyPress}

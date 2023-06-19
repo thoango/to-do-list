@@ -1,21 +1,9 @@
 import { useState } from "react";
-import moreIcon from "../../images/icon-more.png";
+import OptionBoard from "../OptionBoard";
 import "./style.scss";
 function TodoItem({ text, itemId, onCheckClick, onItemDelete, onInputBlur }) {
   const [editing, setEditing] = useState(false);
   const [content, setContent] = useState(text);
-  function showOption(event) {
-    let element = event.currentTarget;
-    let toggleClass = "opened";
-    toggleClassName(element, toggleClass);
-  }
-  function toggleClassName(element, className) {
-    if (element.classList.contains(className)) {
-      element.classList.remove(className);
-    } else {
-      element.classList.add(className);
-    }
-  }
   function handleItemEdit() {
     setEditing(true);
   }
@@ -47,19 +35,7 @@ function TodoItem({ text, itemId, onCheckClick, onItemDelete, onInputBlur }) {
           </span>
         )}
       </div>
-      <div className="todoItem_option" onClick={showOption}>
-        <img src={moreIcon} alt="more icon"></img>
-        <div className="todoItem_optionBox">
-          <ul className="todoItem_optionList">
-            <li
-              className="todoItem_optionItem"
-              onClick={() => onItemDelete(itemId)}
-            >
-              <span className="">Delete</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <OptionBoard itemId={itemId} onItemDelete={onItemDelete}></OptionBoard>
     </li>
   );
 }

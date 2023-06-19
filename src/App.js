@@ -1,4 +1,3 @@
-import TheHeader from "./components/TheHeader";
 import TodoBoard from "./components/TodoBoard";
 import "./scss/default.scss";
 import "./App.scss";
@@ -21,7 +20,6 @@ function App() {
         </a>
       </header> */}
       <div className="App_container">
-        <TheHeader></TheHeader>
         <TodoBoard></TodoBoard>
       </div>
     </div>
