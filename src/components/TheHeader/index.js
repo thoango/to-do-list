@@ -1,4 +1,5 @@
 import { useState } from "react";
+import OptionBoard from "../OptionBoard";
 import moreIcon from "../../images/icon-more.png";
 import "./style.scss";
 function TheHeader() {
@@ -9,6 +10,7 @@ function TheHeader() {
   return (
     <header className="header">
       <h1 className="header_title">TO-DO LIST</h1>
+      <OptionBoard></OptionBoard>
       <div className="header_more" onClick={showCompletedList}>
         <div className="header_moreImage">
           <img src={moreIcon} alt="more icon"></img>
