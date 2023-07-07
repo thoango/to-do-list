@@ -1,0 +1,15 @@
+.option {
+  &_container {
+    display: none;
+    margin: 0 0 0 1rem;
+    &:hover {
+      cursor: pointer;
+    }
+    &.showing {
+      display: block !important;
+    }
+  }
+  &_imageWrap {
+    width: 1rem;
+  }
+}

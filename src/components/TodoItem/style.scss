@@ -1,0 +1,49 @@
+.todoItem {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  &:hover {
+    .todoItem {
+      &_leftWrap {
+        background-color: #c3e8e2;
+      }
+    }
+    .option_container {
+      display: block;
+    }
+  }
+  &:last-child {
+    margin: 0;
+  }
+  &_leftWrap {
+    width: calc(100% - 2rem);
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 1rem;
+    input {
+      outline: none;
+      border: none;
+      border-radius: unset;
+      background-color: transparent;
+      width: calc(100% - 2rem);
+      padding: 1rem 0;
+      border-bottom: 1px solid #d5e3e0;
+    }
+  }
+  &_checkbox {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #bdbdbd;
+    display: inline-block;
+    margin: 0 1rem 0 0;
+    border-radius: 2px;
+  }
+  &_text {
+    border-bottom: 1px solid #d5e3e0;
+    display: block;
+    width: calc(100% - 2rem);
+    padding: 1rem 0;
+  }
+}

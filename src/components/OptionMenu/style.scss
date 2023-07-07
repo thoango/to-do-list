@@ -1,0 +1,17 @@
+.optionMenu {
+  &_box {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 5px;
+    top: 2rem;
+    right: -2rem;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  &_item {
+    padding: 0.5rem 1rem;
+    &:hover {
+      background-color: #c3e8e2;
+    }
+  }
+}
